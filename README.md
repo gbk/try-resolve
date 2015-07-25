@@ -6,7 +6,20 @@
 $ npm install try-resolve
 ```
 
-## Example
+## Usage
+
+```javascrpt
+var resolve = require("try-resolve");
+```
+
+### `resolve(filename, [require])`
+
+ - `filename` is a filename to be resolved.
+ - `require` is an optional instance of the `require` function from any file.
+
+Returns `null` if the file can't be required, otherwise it returns an absolute filename string.
+
+#### Example
 
 ```javascript
 if (require("try-resolve")("/home/sebastian/file")) {
@@ -16,9 +29,6 @@ if (require("try-resolve")("/home/sebastian/file")) {
 }
 ```
 
-## Usage
+### `resolve.relative(filename)`
 
-**tryResolve(filename, [require])**
-
- - `filename` is a filename to be resolved.
- - `require` is an optional instance of the `require` function from any file.
+Resolve a filename relative to the cwd.
