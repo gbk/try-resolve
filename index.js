@@ -10,13 +10,16 @@ var resolve = module.exports = function (loc, _require) {
 
 var relativeMod;
 
-resolve.relative = function (loc) {
+// allow user to set module path outside
+resolve.relativePath = process.cwd();
+
+resolve.relative = function (loc, relativePath) {
   // we're in the browser, probably
   if (typeof Module === "object") return null;
 
   if (!relativeMod) {
     relativeMod = new Module;
-    relativeMod.paths = Module._nodeModulePaths(process.cwd());
+    relativeMod.paths = Module._nodeModulePaths(relativePath || resolve.relativePath);
   }
 
   try {

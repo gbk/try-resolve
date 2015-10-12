@@ -29,6 +29,6 @@ if (require("try-resolve")("/home/sebastian/file")) {
 }
 ```
 
-### `resolve.relative(filename)`
+### `resolve.relative(filename, [relativeTo])`
 
-Resolve a filename relative to the cwd.
+Resolve a filename relative to the `relativeTo` path (default to cwd).
